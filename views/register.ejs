@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTravel - Registration</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles */
+        body {
+            /* Background image */
+            background-image: url('');
+            /* Background size and position */
+            background-size: cover;
+            background-position: center;
+            /* Optional: background color as fallback */
+            background-color: #f3f4f6; /* Light gray */
+        }
+    </style>
+
+    <script>
+        // Function to show/hide fields based on the selected role
+        function toggleFields() {
+            var role = document.getElementById('register_as').value;
+            var travelerFields = document.getElementById('travelerFields');
+            var hotelManagerFields = document.getElementById('hotelManagerFields');
+            var tourGuideFields = document.getElementById('tourGuideFields');
+
+            // Hide all fields first
+            travelerFields.style.display = 'none';
+            hotelManagerFields.style.display = 'none';
+            tourGuideFields.style.display = 'none';
+
+            // Show fields based on the selected role
+            if (role === 'traveler') {
+                travelerFields.style.display = 'block';
+            } else if (role === 'hotel_manager') {
+                hotelManagerFields.style.display = 'block';
+            } else if (role === 'tour_guide') {
+                tourGuideFields.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="max-w-md w-full p-8 bg-white shadow-lg rounded-md">
+        <h2 class="text-2xl font-semibold text-center mb-6">Create an Account</h2>
+        <form action="/register" method="POST">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your full name">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your email address">
+            </div>
+            <!-- Register As Option -->
+            <div class="mb-4">
+                <label for="register_as" class="block text-gray-700 font-semibold mb-2">Register As</label>
+                <select id="register_as" name="register_as" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" onchange="toggleFields()">
+                    <option value="traveler">Traveler</option>
+                    <option value="hotel_manager">Hotel Manager</option>
+                    <option value="tour_guide">Tour Guide</option>
+                </select>
+            </div>
+            <!-- Traveler Fields -->
+            <div id="travelerFields" style="display:none;">
+                <div class="mb-4">
+                    <label for="passportNumber" class="block text-gray-700 font-semibold mb-2">Passport Number</label>
+                    <input type="text" id="passportNumber" name="passportNumber" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your passport number">
+                </div>
+                <div class="mb-4">
+                    <label for="nationality" class="block text-gray-700 font-semibold mb-2">Nationality</label>
+                    <input type="text" id="nationality" name="nationality" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your nationality">
+                </div>
+            </div>
+            <!-- Hotel Manager Fields -->
+            <div id="hotelManagerFields" style="display:none;">
+                <div class="mb-4">
+                    <label for="hotelName" class="block text-gray-700 font-semibold mb-2">Hotel Name</label>
+                    <input type="text" id="hotelName" name="hotelName" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your hotel name">
+                </div>
+                <div class="mb-4">
+                    <label for="hotelLocation" class="block text-gray-700 font-semibold mb-2">Hotel Location</label>
+                    <input type="text" id="hotelLocation" name="hotelLocation" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your hotel location">
+                </div>
+            </div>
+            <!-- Tour Guide Fields -->
+            <div id="tourGuideFields" style="display:none;">
+                <div class="mb-4">
+                    <label for="experienceYears" class="block text-gray-700 font-semibold mb-2">Experience Years</label>
+                    <input type="number" id="experienceYears" name="experienceYears" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your experience years">
+                </div>
+                <div class="mb-4">
+                    <label for="spokenLanguages" class="block text-gray-700 font-semibold mb-2">Spoken Languages</label>
+                    <input type="text" id="spokenLanguages" name="spokenLanguages" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter languages you speak">
+                </div>
+            </div>
+            <!-- Common Fields -->
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Enter your password">
+            </div>
+            <div class="mb-6">
+                <label for="password_confirmation" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Confirm your password">
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Register</button>
+            </div>
+        </form>
+        <div class="mt-4 text-center">
+            <span class="text-gray-600">Already have an account?</span>
+            <a href="/login" class="text-blue-500 font-semibold hover:text-blue-700">Login</a>
+        </div>
+    </div>
+    <script>
+        // Function to show/hide fields based on the selected role
+        function toggleFields() {
+            var role = document.getElementById('register_as').value;
+            var travelerFields = document.getElementById('travelerFields');
+            var hotelManagerFields = document.getElementById('hotelManagerFields');
+            var tourGuideFields = document.getElementById('tourGuideFields');
+
+            // Hide all fields first
+            travelerFields.style.display = 'none';
+            hotelManagerFields.style.display = 'none';
+            tourGuideFields.style.display = 'none';
+
+            // Show fields based on the selected role
+            if (role === 'traveler') {
+                travelerFields.style.display = 'block';
+            } else if (role === 'hotel_manager') {
+                hotelManagerFields.style.display = 'block';
+            } else if (role === 'tour_guide') {
+                tourGuideFields.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
