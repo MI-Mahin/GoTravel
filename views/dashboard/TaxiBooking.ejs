@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fontawesome link -->
+    <script
+      src="https://kit.fontawesome.com/c1df782baf.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="TaxiBooking.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div
+        class="nav__logo"
+        style="
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 30px;
+          font-weight: 600;
+        "
+      >
+        GoTravel
+      </div>
+
+      <nav class="menu">
+        <a href="/">Home</a>
+        <a href="#About">About us</a>
+        <div class="dropdown">
+          <button class="dropbtn">Reservations</button>
+          <div class="dropdown-content">
+            <a href="#">Hotels</a>
+            <a href="/findDestination">Tour Packages</a>
+            <a href="/TaxiBooking">Vehicles</a>
+            <a href="#">Trains</a>
+            <a href="/PlaneBooking">Planes</a>
+            <a href="#">Events</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="navbar-icons">
+        <div id="navbar" class="fas fa-bars"></div>
+
+        <div class="contact"><a href="#">contact</a></div>
+      </div>
+
+      <div class="contact-form">
+        <form action="" class="navbar-form">
+          <div id="form-close" class="fas fa-times"></div>
+          <div class="names-section">
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              id="Lname"
+              name="fname"
+              placeholder="Last Name"
+            />
+
+            <input type="email" placeholder="Email" />
+            <textarea
+              placeholder="Message"
+              name=""
+              id=""
+              cols="85"
+              rows="10"
+            ></textarea>
+            <Button class="form-btn"> Submit </Button>
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <!-- Home section starting -->
+
+    <div class="main-home">
+      <div class="home-inner-contect">
+        <div class="home-content">
+          <h3>Hire your best driver</h3>
+
+          <h1>
+            Trusted and <span>Cheapest Taxi</span> <br />
+            company service
+          </h1>
+
+          <div class="important-btn">
+            <a href="#">Order Taxi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- home section ended -->
+
+    <!-- Our business partner -->
+
+    <div id="About" class="about-us">
+      <div class="main-about">
+        <div class="inner-about">
+          <img src="/assets/images/partner.jpg" alt="" />
+        </div>
+        <div class="inner-about">
+          <div class="about-content">
+            <h3>About our company</h3>
+            <h1>WE'RE PARTNER OF YOUR BUSINESS</h1>
+
+            <div class="paragraph">
+              <p>
+                Interactively maintain holistic best practices and user fully
+                researched commerce installed base interna
+              </p>
+              <h4>David Smith <span>Head idea</span></h4>
+            </div>
+
+            <div class="contact-with-us">
+              <div class="fa-solid fa-phone phone"></div>
+              <div class="contact-inner-content">
+                <h4>Call us 24/7 <span>anytime</span></h4>
+                <h4>+447878941715</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- our services -->
+
+    <div class="our-service">
+      <div class="service-heading">
+        <h3>Our services</h3>
+        <h1>what we are offering</h1>
+      </div>
+
+      <div class="main-inner-service">
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img src="/assets/images/service1.jpg" alt="" />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">Easy Booking</h2>
+                <p class="service-text">
+                  Book a taxi with just a few taps on your phone. No more
+                  waiting in line or searching for taxis on the street.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img src="/assets/images/service4.jpg" alt="" />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">24/7 Availability</h2>
+                <p class="service-text">
+                  Our taxi service is available round the clock, ensuring you
+                  can book a ride whenever you need it, day or night.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img src="/assets/images/service3.jpg" alt="" />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">Experienced Drivers</h2>
+                <p class="service-text">
+                  Travel with confidence knowing that our drivers are
+                  experienced, professional, and prioritize your safety.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img
+              src="https://img.freepik.com/free-photo/woman-wanting-pay-taxi-services_23-2149149586.jpg?size=626&ext=jpg&ga=GA1.1.867424154.1712793600&semt=ais"
+              alt=""
+            />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">Comfortable Rides</h2>
+                <p class="service-text">
+                  Experience comfort and convenience during your rides with our
+                  well-maintained and spacious vehicles.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img
+              src="https://t3.ftcdn.net/jpg/03/04/41/80/360_F_304418095_oYl68WmnLkMz1hq692AkjBBnkELOvOja.jpg"
+              alt=""
+            />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">Customer Support</h2>
+                <p class="service-text">
+                  Get assistance whenever you need it with our dedicated
+                  customer support team available 24/7 to address your queries
+                  and concerns.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-service-content">
+          <div class="service-img">
+            <img src="/assets/images/driver6.jpg" alt="" />
+          </div>
+          <div class="service-out">
+            <div class="service-main-content">
+              <div class="service-icon">
+                <i class="fa-solid fa-house-user"></i>
+              </div>
+              <div class="service-content-inside">
+                <h2 class="service-title">Personalized Recommendations</h2>
+                <p class="service-text">
+                  Experience personalized recommendations tailored to your
+                  preferences, ensuring every ride is just the way you like it.
+                </p>
+                <a class="service-btn" href="">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- comfortable Trip -->
+
+    <div class="main-trip">
+      <div class="main-trip-heading">
+        <h1>comfortable <span>Trip</span></h1>
+      </div>
+
+      <div class="main-trip-box">
+        <div class="main-trip-inner-box">
+          <img
+            src="https://www.grab.com/sg/wp-content/uploads/sites/4/2016/10/rsz_grabtaxi_generic_img_7041_v3_1.jpg"
+            alt=""
+          />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>Eco-Friendly Fleet</h2>
+            <p>
+              Our taxis are environmentally friendly, reducing carbon emissions
+              for a greener planet.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-trip-inner-box">
+          <img src="/assets/images/driver3.jpg" alt="" />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>24/7 Customer Support</h2>
+            <p>
+              Get round-the-clock assistance from our dedicated customer support
+              team.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-trip-inner-box">
+          <img
+            src="https://img.freepik.com/free-photo/woman-talking-with-taxi-driver-car_23-2149149583.jpg"
+            alt=""
+          />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>In-Car Entertainment</h2>
+            <p>
+              Enjoy a comfortable ride with in-car entertainment options, making
+              your journey more enjoyable.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-trip-inner-box">
+          <img src="/assets/images/driver4.jpg" alt="" />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>Pet-Friendly Rides</h2>
+            <p>
+              Travel with your furry friends hassle-free with our pet-friendly
+              policy.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-trip-inner-box">
+          <img
+            src="https://as1.ftcdn.net/v2/jpg/02/21/30/04/1000_F_221300445_wOCjdcfppj0JuMWgP5LVB91pzYItU2cG.jpg"
+            alt=""
+          />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>Child Safety Seats</h2>
+            <p>
+              Ensure your child's safety with our available child safety seats,
+              providing peace of mind for parents.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-trip-inner-box">
+          <img src="/assets/images/driver5.jpg" alt="" />
+
+          <div class="trip-content">
+            <i class="fa-solid fa-car"></i>
+            <h2>Destination Insights</h2>
+            <p>
+              Discover local insights and hidden gems from knowledgeable
+              drivers, enhancing your travel experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="order" id="order">
+      <h1 class="heading"><span>order</span> now</h1>
+
+      <div class="row">
+        <form id="taxiForm" action="/orderTaxi" class="myform" method="POST">
+          <div class="inputBox">
+            <input type="text" id="name" placeholder="Name" />
+            <input type="number" id="number" placeholder="Number" />
+          </div>
+          <div class="inputBox">
+            <input
+              type="text"
+              id="pickupLocation"
+              placeholder="Pick-Up Location"
+            />
+            <input
+              type="text"
+              id="dropoffLocation"
+              placeholder="Drop-off Location"
+            />
+          </div>
+          <textarea
+            id="message"
+            placeholder="Message"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" value="Order Now" class="btn" />
+
+          <a href="/orders" class="btn">Orders</a>
+        </form>
+
+        <div class="image footer-image">
+          <img src="/assets/images/comfort.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <div class="main-footer">
+      <div class="footer-heading">
+        <h1>Footer</h1>
+      </div>
+
+      <div class="main-inner-footer">
+        <div class="footer-content">
+          <img src="images/logo.png" alt="" />
+          <p class="logo-text">Call Us 24/7 Anytime</p>
+        </div>
+
+        <div class="footer-content">
+          <h1>Links</h1>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+        </div>
+
+        <div class="footer-content">
+          <h1>Links</h1>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+        </div>
+
+        <div class="footer-content">
+          <h1>Links</h1>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+          <a href="#">dummy links</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('taxiForm');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form data
+        const name = document.getElementById('name').value;
+        const number = document.getElementById('number').value;
+        const pickupLocation = document.getElementById('pickupLocation').value;
+        const dropoffLocation = document.getElementById('dropoffLocation').value;
+        const message = document.getElementById('message').value;
+
+        // Create an object with form data
+        const formData = {
+            name: name,
+            number: number,
+            pickupLocation: pickupLocation,
+            dropoffLocation: dropoffLocation,
+            message: message
+        };
+
+        // Make a POST request to submit the form data
+        fetch('/orderTaxi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            alert('Order placed successfully');
+        })
+        .then(data => {
+            console.log(data);
+            alert('Order placed successfully');
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    });
+});
+
+    </script> -->
+  </body>
+</html>

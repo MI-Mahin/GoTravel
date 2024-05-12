@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="destinationStyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-5XweatQVvfExF3v7R1F3IOZZ4egy6VfM5JGn1VwGi7Zx6K3m0O0KgigZlh8fB0EQ2FG6gF29V8z7NpD0kvGpZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-ZeW1/LCNpKlk1MDC+wcEe5HK4NpqUDrbzTbj7sT+Bys8eXwBO8ttaPXdG9Z1s1S2OwgNcXx7X3fQ9h9JpKtL1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="media.css" />
+    <title>GoTravel</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav>
+        <h1>GoTravel</h1>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="#">Reservations</a>
+            <ul>
+              <li><a href="#">Hotels</a></li>
+              <li><a href="#">Tour Packages</a></li>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Trains</a></li>
+              <li><a href="#">Restaurants</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </li>
+          <li><a href="/contactUs">Contact Us</a></li>
+
+          <!-- <li class="auth-buttons">
+                        <a href="/login">Login</a>
+                        <a href="/register">Register</a>
+                    </li> -->
+        </ul>
+      </nav>
+      <div class="content">
+        <div class="cont_bx">
+          <h1>The right destination for you and your family</h1>
+          <p>Find the best destination for your next vacation</p>
+          <button>Start Your Search</button>
+        </div>
+        <!--
+            find tour packages starts below:
+       -->
+        <div class="trip_bx">
+          <form action="/finddestination" method="post">
+            <div class="search_bx">
+              <div class="card">
+                <h4>Location <i class="fas fa-map-marker-alt"></i></h4>
+                <input
+                  type="text"
+                  placeholder="Enter your destination"
+                  name="location"
+                />
+              </div>
+              <div class="card">
+                <h4>Start Date <i class="fas fa-calendar-alt"></i></h4>
+                <input type="date" name="date" />
+              </div>
+              <div class="card">
+                <h4>End Date <i class="fas fa-calendar-alt"></i></h4>
+                <input type="date" name="endDate" />
+              </div>
+              <div class="card">
+                <h4>People <i class="fas fa-user-friends"></i></h4>
+                <input
+                  type="number"
+                  placeholder="How many People"
+                  name="number"
+                />
+              </div>
+              <input
+                type="submit"
+                id="button"
+                value="Explore Now"
+                class="explore"
+              />
+            </div>
+          </form>
+
+          <div class="Travel_bx">
+            <h4>Countries to Travel</h4>
+            <div class="cards">
+              <div class="card">
+                <h3>
+                  Bangladesh
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1200px-Flag_of_Bangladesh.svg.png"
+                    alt=""
+                  />
+                </h3>
+                <img
+                  src="https://media.istockphoto.com/id/1137668735/photo/twilight-time-of-urban-cityscape-in-blue-hour-beautiful-light-when-sunset-can-use-to-display.jpg?s=612x612&w=0&k=20&c=Jkw3qba52oHBRL1RnPlgICCMlS7z9hH5p0HhQfEzyUo="
+                  alt=""
+                />
+                <div class="btn_city">
+                  <a href="">Read Now</a>
+                  <h5>
+                    Dhaka City <br />
+                    <span>$300</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="card">
+                <h3>
+                  United States
+                  <img
+                    src="https://cdn.britannica.com/33/4833-050-F6E415FE/Flag-United-States-of-America.jpg"
+                    alt=""
+                  />
+                </h3>
+                <img
+                  src="https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  alt=""
+                />
+                <div class="btn_city">
+                  <a href="">Read Now</a>
+                  <h5>
+                    New York <br />
+                    <span>$900</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="card">
+                <h3>
+                  Russia
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+                    alt=""
+                  />
+                </h3>
+                <img
+                  src="https://i.pinimg.com/736x/13/6c/cd/136ccda903716c96fadda53142580c2c.jpg"
+                  alt=""
+                />
+                <div class="btn_city">
+                  <a href="">Read Now</a>
+                  <h5>
+                    Moscow <br />
+                    <span>$690</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="card">
+                <h3>
+                  Spain
+                  <img
+                    src="https://cdn.britannica.com/36/4336-050-056AC114/Flag-Spain.jpg"
+                    alt=""
+                  />
+                </h3>
+                <img
+                  src="https://media.istockphoto.com/id/1297951654/photo/aerial-night-view-of-barcelona-eixample-residencial-district-and-famous-basilica-catalonia.jpg?s=612x612&w=0&k=20&c=601Nl0y1MoNdhp3Fz7Ct4AnM9rZegk2zZ71PiHURQus="
+                  alt=""
+                />
+                <div class="btn_city">
+                  <a href="">Read Now</a>
+                  <h5>
+                    Barcelona <br />
+                    <span>$750</span>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="offers">
+      <h1>Best Tour Packages for you</h1>
+      <p>Choose your next destination</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Ahsan Monjil-Dhaka</h3>
+          <div class="img_text">
+            <img
+              src="https://image.arrivalguides.com/500x500/08/8ae5c48ea936c87a76f5032f9a4e3344.jpg"
+              alt=""
+            />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>26415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>1000</b>
+              </div>
+              <div class="info_price">
+                <a href="">More Info</a><br />
+                <h4>$2670</h4>
+              </div>
+            </div>
+            <div class="days">
+              5 days <br />
+              Bangladesh
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Burj Khalifa-Dubai</h3>
+          <div class="img_text">
+            <img
+              src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt=""
+            />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>96415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>15600</b>
+              </div>
+              <div class="info_price">
+                <a href="">More Info</a><br />
+                <h4>$9670</h4>
+              </div>
+            </div>
+            <div class="days">
+              5 days <br />
+              Dubai
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Pyramids-Egypt</h3>
+          <div class="img_text">
+            <img
+              src="https://i.natgeofe.com/n/535f3cba-f8bb-4df2-b0c5-aaca16e9ff31/giza-plateau-pyramids_16x9.jpg"
+              alt=""
+            />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>86415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>12456</b>
+              </div>
+              <div class="info_price">
+                <a href="">More Info</a><br />
+                <h4>$6670</h4>
+              </div>
+            </div>
+            <div class="days">
+              7 days <br />
+              Egypt
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Mount Fuji-Japan</h3>
+          <div class="img_text">
+            <img
+              src="https://media.cnn.com/api/v1/images/stellar/prod/230908155626-05-mount-fuji-overtourism.jpg?c=original"
+              alt=""
+            />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>77415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>8456</b>
+              </div>
+              <div class="info_price">
+                <a href="">More Info</a><br />
+                <h4>$8670</h4>
+              </div>
+            </div>
+            <div class="days">
+              9 days <br />
+              Japan
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="destination">
+      <div class="des_bx">
+        <h4>Our destination</h4>
+        <p>Choose your next destination</p>
+        <ul>
+          <li>Bangladesh</li>
+          <li>United States</li>
+          <li>Russia</li>
+          <li>Spain</li>
+          <li>Japan</li>
+          <li>India</li>
+          <li>China</li>
+        </ul>
+        <h6>Included Air Ticket, Hotel, Breakfast, Tours, Air Transfer</h6>
+        <button>More info</button>
+      </div>
+      <div class="img_bx">
+        <img
+          src="https://s2.best-wallpaper.net/wallpaper/iphone/1810/Airport-plane-sunrise_iphone_320x480.jpg"
+          alt=""
+        />
+        <div class="msg">
+          <img
+            src="https://t4.ftcdn.net/jpg/01/04/47/13/360_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg"
+            alt=""
+          />
+          <div class="cont">
+            <h4><b>Bangladesh</b></h4>
+            <div class="icon">
+              <i class="fas fa-heart"></i>❤️ <b>26415</b>
+              <i class="fas fa-comment"></i>💬 <b>4556</b>
+            </div>
+          </div>
+        </div>
+        <div class="msg">
+          <img
+            src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"
+            alt=""
+          />
+          <div class="cont">
+            <h4><b>United States</b></h4>
+            <div class="icon">
+              <i class="fas fa-heart"></i>❤️ <b>77415</b>
+              <i class="fas fa-comment"></i>💬 <b>8456</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h2>
+        Subscribe <br />
+        and get special discount
+      </h2>
+      <p>
+        Subscribe to our newsletter and get exclusive deals you won't find
+        anywhere else straight to your inbox!
+      </p>
+      <div class="input">
+        <input type="text" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+      <ul>
+        <li>
+          7 <br />
+          <h6>Years serving the travel industry</h6>
+        </li>
+        <li>
+          6 <br />
+          <h6>
+            Global <br />
+            Partnership
+          </h6>
+        </li>
+        <li>
+          6 <br />
+          <h6>Industry Awards since 2015</h6>
+        </li>
+        <li>
+          7823 <br />
+          <h6>Subscribers</h6>
+        </li>
+      </ul>
+      <div class="table-footer-group">
+        <header>
+          <h1>Travely</h1>
+          <p>
+            Our commitment to transparency and integrity drives every aspect of
+            our business.<br />
+            We believe that honesty and trustworthiness are the cornerstones of
+            a successful company
+          </p>
+          <div class="social-icons">
+            <div>
+              <img
+                src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
+                alt=""
+              />
+              <i class="fab fa-whatsapp"></i>
+              <img
+                src="https://img.icons8.com/color/48/000000/facebook-new.png"
+                alt=""
+              />
+              <i class="fab fa-facebook"></i>
+              <img
+                src="https://img.icons8.com/color/48/000000/instagram-new.png"
+                alt=""
+              />
+              <i class="fab fa-instagram"></i>
+              <img
+                src="https://img.icons8.com/color/48/000000/twitter--v1.png"
+                alt=""
+              />
+              <i class="fab fa-twitter"></i>
+            </div>
+            <div class="table-footer-group">
+              <section class="reservations">
+                <h2>Reservations</h2>
+                <ul>
+                  <li>Hotels</li>
+                  <li>Tour Packages</li>
+                  <li>Vehicles</li>
+                  <li>Restaurants</li>
+                  <li>Events</li>
+                </ul>
+              </section>
+              <aside class="support">
+                <h2>Support</h2>
+                <ul>
+                  <li>FAQ</li>
+                  <li>Terms and Conditions</li>
+                  <li>Privacy Policy</li>
+                  <li>Support</li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+        </header>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const startDateInput = document.querySelector('input[name="date"]');
+        const endDateInput = document.querySelector('input[name="endDate"]');
+
+        // Add an event listener to the form for form submission
+        document
+          .querySelector("form")
+          .addEventListener("submit", function (event) {
+            // Get the current date
+            const currentDate = new Date();
+            currentDate.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0 for comparison
+
+            // Get the selected start date and end date
+            const selectedStartDate = new Date(startDateInput.value);
+            const selectedEndDate = new Date(endDateInput.value);
+
+            // Check if the selected start date or end date is in the past
+            if (
+              selectedStartDate < currentDate ||
+              selectedEndDate < currentDate
+            ) {
+              // Prevent form submission
+              event.preventDefault();
+
+              // Display an error message to the user
+              alert("Please select a date that is at least the current date.");
+            } else if (
+              selectedStartDate.getTime() === selectedEndDate.getTime()
+            ) {
+              event.preventDefault();
+              alert("Please select a date that is greater than start date.");
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

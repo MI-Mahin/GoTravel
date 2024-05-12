@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title><%= title %></title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <div
+        class="nav__logo"
+        style="
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 30px;
+          font-weight: 600;
+        "
+      >
+        GoTravel
+      </div>
+
+      <nav class="menu">
+        <a href="/">Home</a>
+        <a href="/About">About us</a>
+        <div class="dropdown">
+          <button class="dropbtn">Reservations</button>
+          <div class="dropdown-content">
+            <a href="#">Hotels</a>
+            <a href="/findDestination">Tour Packages</a>
+            <a href="/TaxiBooking">Vehicles</a>
+            <a href="#">Trains</a>
+            <a href="/PlaneBooking">Planes</a>
+            <a href="#">Events</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="navbar-icons">
+        <div id="navbar" class="fas fa-bars"></div>
+
+        <div class="contact"><a href="#">contact</a></div>
+      </div>
+
+      <div class="contact-form">
+        <form action="/contact/submit" method="post" class="navbar-form">
+          <div id="form-close" class="fas fa-times"></div>
+          <div class="names-section">
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              id="lname"
+              name="fname"
+              placeholder="Last Name"
+            />
+
+            <input type="email" id="email" name="email" placeholder="Email" />
+
+            <textarea
+              placeholder="Message"
+              name=""
+              id="message"
+              cols="85"
+              rows="10"
+            ></textarea>
+            <Button class="form-btn"> Submit </Button>
+          </div>
+        </form>
+      </div>
+      <div class="auth-buttons">
+        <a href="/auth/login">Login</a>
+        <a href="/auth/register">Register</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="image">
+            <img
+              src="https://img.freepik.com/premium-photo/palm-tree-jungle-philippines-concept-about-wanderlust-tropical-travels-swinging-river-people-having-fun_186382-1220.jpg?w=1060"
+            />
+          </div>
+          <div class="content">
+            <h2>Explore the Wonders in the World</h2>
+            <h3>
+              Travel with us and experience the beauty of the world. Book your
+              reservations now!
+            </h3>
+            <button>Get started</button>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="image-grid">
+          <div class="rectangle-image">
+            <img
+              src="https://images.unsplash.com/photo-1594993877167-a08f13013dc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+              alt="Rectangle Image"
+            />
+            <img
+              src="https://cdn.pixabay.com/photo/2020/05/04/16/05/mckenzie-river-5129717_640.jpg"
+              alt="Rectangle Image"
+            />
+
+            <img
+              src="https://www.worldatlas.com/r/w768/upload/a6/f4/a8/shutterstock-487738441.jpg"
+              alt="Rectangle Image"
+            />
+
+            <h1>Why Choose us?</h1>
+            <div class="container">
+              <h4>
+                Elevate your journeys with our innovative travel app, offering
+                seamless planning,<br />
+                personalized recommendations, and exclusive deals
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="centered-heading">Our Services</h2>
+      <h1 class="centered-heading">What We Offer</h1>
+
+      <div class="services">
+        <div class="service">
+          <img
+            src="https://images.emojiterra.com/google/android-jellybean/1f3e8.png"
+            alt="Hotel Image"
+          />
+          <div>
+            <h3>Hotel Reservation</h3>
+          </div>
+        </div>
+        <div class="service">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRCFUT9HZ1NIaIeXpb3WuKQOxFjz1jLOhsoNGin2Gw2g&s"
+            alt="Tour Image"
+          />
+          <div>
+            <h3>Tour Package Reservation</h3>
+          </div>
+        </div>
+        <div class="service">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvJlVLnZGMUAO5cWklPkekni0DXMbMu7UbkL3u7ditFA&s"
+            alt="Vehicle Image"
+          />
+          <div>
+            <h3>Vehicle Reservation</h3>
+          </div>
+        </div>
+      </div>
+      <div class="services">
+        <div class="service">
+          <img
+            src="https://banner2.cleanpng.com/20180618/lfl/kisspng-train-rail-transport-steam-locomotive-highpressure-steam-locomotive-5b275a164087d2.7168816515293056222643.jpg"
+            alt="Train Image"
+          />
+          <div>
+            <h3>Train Reservation</h3>
+          </div>
+        </div>
+        <div class="service">
+          <img
+            src="https://images.emojiterra.com/twitter/v13.1/512px/1f374.png"
+            alt="Restaurant Image"
+          />
+          <div>
+            <h3>Restaurant Reservation</h3>
+          </div>
+        </div>
+        <div class="service">
+          <img
+            src="https://static.thenounproject.com/png/2591250-200.png"
+            alt="Event Image"
+          />
+          <div>
+            <h3>Event Reservation</h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h1>Travel with us</h1>
+      <p>Take only memories, leave only footprints</p>
+      <div class="table-footer-group">
+        <div class="sections-container">
+          <section class="reservations">
+            <h2>Reservations</h2>
+            <ul>
+              <li>Hotels</li>
+              <li>Tour Packages</li>
+              <li>Vehicles</li>
+              <li>Restaurants</li>
+              <li>Events</li>
+            </ul>
+          </section>
+          <aside class="support">
+            <h2>Support</h2>
+            <ul>
+              <li>FAQ</li>
+              <li>Terms and Conditions</li>
+              <li>Privacy Policy</li>
+              <li>Support</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

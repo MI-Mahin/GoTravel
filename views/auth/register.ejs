@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url("https://hips.hearstapps.com/hmg-prod/images/hbz-travel-index4-1-1547062794.gif");
+        background-size: cover;
+        background-position: center;
+        background-color: #f3f4f6;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="max-w-md w-full p-8 bg-white shadow-lg rounded-md">
+      <h2 class="text-2xl font-semibold text-center mb-6">Create an Account</h2>
+
+      <form
+        action="/auth/user-register"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-semibold mb-2"
+            >Full Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-semibold mb-2"
+            >Email Address</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Enter your email address"
+          />
+
+          <% if (error) { %>
+          <p id="error" class="mt-2 text-xs text-red-600 dark:text-red-400">
+            <span class="font-medium">Oh, snapp!</span>
+            <%= error %>
+          </p>
+          <% } %>
+        </div>
+
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 font-semibold mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="password2" class="block text-gray-700 font-semibold mb-2"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Confirm your password"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="image" class="block text-gray-700 font-semibold mb-2"
+            >Profile picture
+          </label>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            placeholder="your image"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            required=""
+          />
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button
+            type="submit"
+            value="register"
+            name="user-register"
+            class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-4 text-center">
+        <span class="text-gray-600">Already have an account?</span>
+
+        <a
+          href="/auth/login"
+          class="text-blue-500 font-semibold hover:text-blue-700"
+          >Sign In</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destination Search Results</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional CSS styles can be added here */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 2rem;
+        gap: 2rem; /* Adjusted gap */
+      }
+
+      .filter-box {
+        flex: 1;
+        max-width: calc(20% - 20px); /* Adjusted width */
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 20px;
+        margin-top: 4rem;
+      }
+
+      .filter-button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+
+      .filter-button.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .filter-button:hover {
+        background-color: #e9ecef;
+      }
+
+      .search-results {
+        flex: 2;
+        max-width: 60%;
+        align-items: center; /* Align items vertically */
+        padding: 1.5rem 1rem; /* Adjust padding */
+        /* Add right padding */
+      }
+
+      .package-link:hover .booking-card {
+        background-color: #e7e8d3;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(106, 110, 110, 0.2);
+      }
+
+      .booking-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .package-link:hover .booking-card img {
+        transform: scale(1.1); /* Adjust scale for hover effect */
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+  >
+    <div class="container">
+      <!-- filtering options -->
+      <div class="filter-box">
+        <h2 class="text-lg font-semibold mb-4 text-center">Filter Options</h2>
+        <button class="filter-button" data-filter="low_to_high">
+          Price Low to High
+        </button>
+        <button class="filter-button" data-filter="high_to_low">
+          Price High to Low
+        </button>
+      </div>
+
+      <!-- Search results content here: -->
+      <div class="search-results max-w-4xl">
+        <h1 class="text-3xl font-bold mb-6">Destination Search Results</h1>
+
+        <% if (tourPackages.length > 0) { %>
+
+        <div class="grid grid-cols-1 gap-6">
+          <% tourPackages.forEach(package => { %>
+          <a href="/details/<%= package.package_id %>" class="package-link">
+            <div
+              class="bg-white rounded-lg shadow-lg overflow-hidden flex items-center booking-card"
+            >
+              <img
+                class="w-1/3 h-auto object-cover"
+                src="<%= package.image_url %>"
+                alt="Package Image"
+              />
+              <div class="p-6 w-2/3">
+                <h2 class="text-xl font-semibold mb-2">
+                  <%= package.package_name %>
+                </h2>
+                <p class="text-gray-600">Location: <%= package.location %></p>
+                <p class="text-gray-600">Tour Date: <%= package.tour_date %></p>
+                <p class="text-gray-600">
+                  Max Capacity: <%= package.max_capacity %>
+                </p>
+                <p class="text-gray-600">
+                  Description: <%= package.description %>
+                </p>
+                <p class="text-gray-600">
+                  Price: <%= package.price %> <%= package.currency %>
+                </p>
+              </div>
+            </div>
+          </a>
+          <% }); %>
+        </div>
+        <% } else { %>
+        <p class="text-gray-600">
+          No tour packages found for the specified criteria.
+        </p>
+        <% } %>
+      </div>
+    </div>
+
+    <script type="module">
+      import { finddestination } from "../../controllers/dashboardController.js";
+
+      let tourPackages = [];
+
+      // Function to render tour packages
+      function renderPage(filteredPackages = []) {
+        const resultsContainer = document.querySelector(
+          ".search-results .grid"
+        );
+        if (!resultsContainer) return;
+
+        resultsContainer.innerHTML = "";
+
+        const packagesToRender = filteredPackages.length
+          ? filteredPackages
+          : tourPackages;
+
+        packagesToRender.forEach((tourPackage) => {
+          const packageElement = document.createElement("div");
+          packageElement.classList.add(
+            "bg-white",
+            "rounded-lg",
+            "shadow-lg",
+            "overflow-hidden",
+            "flex",
+            "items-center"
+          );
+
+          packageElement.innerHTML = `
+        <img class="w-1/3 h-auto object-cover" src="${tourPackage.image_url}" alt="Package Image" />
+        <div class="p-6 w-2/3">
+          <h2 class="text-xl font-semibold mb-2">${tourPackage.package_name}</h2>
+          <p class="text-gray-600">Location: ${tourPackage.location}</p>
+          <p class="text-gray-600">Tour Date: ${tourPackage.tour_date}</p>
+          <p class="text-gray-600">Max Capacity: ${tourPackage.max_capacity}</p>
+          <p class="text-gray-600">Description: ${tourPackage.description}</p>
+          <p class="text-gray-600">Price: ${tourPackage.price} ${tourPackage.currency}</p>
+        </div>
+      `;
+
+          resultsContainer.appendChild(packageElement);
+        });
+      }
+
+      // Event listener for filter buttons
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM loaded");
+        document.querySelectorAll(".filter-button").forEach((button) => {
+          button.addEventListener("click", () => {
+            button.classList.toggle("active");
+            const filter = button.dataset.filter;
+
+            let filteredPackages = [];
+
+            if (filter === "low_to_high") {
+              filteredPackages = tourPackages
+                .slice()
+                .sort((a, b) => a.price - b.price);
+            } else if (filter === "high_to_low") {
+              filteredPackages = tourPackages
+                .slice()
+                .sort((a, b) => b.price - a.price);
+            }
+
+            renderPage(filteredPackages);
+          });
+        });
+      });
+
+      // Call renderPage function after page loads
+      window.onload = () => {
+        console.log("Page loaded");
+        finddestination()
+          .then((response) => {
+            tourPackages = response.data.tourPackages;
+            renderPage(); // Call renderPage function after promise resolves
+          })
+          .catch((error) => {
+            console.error("Error fetching tour packages:", error);
+          });
+      };
+    </script>
+  </body>
+</html>

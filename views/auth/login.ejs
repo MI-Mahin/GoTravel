@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <style>
+      body {
+        background-image: url("https://hips.hearstapps.com/hmg-prod/images/hbz-travel-index4-1-1547062794.gif");
+        background-size: cover;
+        background-position: center;
+        background-color: #f3f4f6; /* Light gray */
+      }
+    </style>
+  </head>
+  <body class="h-screen flex items-center justify-center">
+    <div class="max-w-md w-full p-8 bg-white shadow-lg rounded-md">
+      <h2 class="text-2xl font-semibold text-center mb-6">Login to GoTravel</h2>
+      <form action="/auth/user-login" method="post">
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-semibold mb-2"
+            >Email Address</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Enter your email address"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 font-semibold mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Enter your password"
+          />
+
+          <% if (error) { %>
+          <p id="error" class="mt-2 text-xs text-red-600 dark:text-red-400">
+            <span class="font-medium">Oh no!</span>
+            <%= error %>
+          </p>
+          <% } %>
+        </div>
+
+        <div class="mb-6">
+          <label for="remember" class="inline-flex items-center">
+            <input
+              type="checkbox"
+              id="remember"
+              name="remember"
+              class="rounded border-gray-300 text-blue-500 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+            <span class="ml-2 text-gray-700 font-semibold">Remember me</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            type="submit"
+            value="login"
+            class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <span class="text-gray-600">Don't have an account?</span>
+        <a
+          href="/auth/register"
+          class="text-blue-500 font-semibold hover:text-blue-700"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
