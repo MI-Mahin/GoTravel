@@ -14,7 +14,7 @@
     "ExpressJS",
     "Postgresql"
   ],
-  "author": "ovi01",
+  "author": "hasin023",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -27,9 +27,7 @@
     "express-session": "^1.18.0",
     "formidable": "^3.5.1",
     "jsonwebtoken": "^9.0.2",
-    "moment": "^2.30.1",
-    "pg": "^8.11.3",
-    "uuid": "^9.0.1"
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0",

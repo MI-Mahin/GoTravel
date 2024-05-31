@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <!-- Link to Tailwind CSS CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Link to your custom CSS file -->
-    <link rel="stylesheet" href="/dashboard.css" />
+    <link rel="stylesheet" href="/dashboard.css">
     <!-- Link to Google Fonts for better font -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
   </head>
+  
 
   <body class="bg-gray-100 font-roboto">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -24,11 +19,7 @@
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src="https://w1.pngwing.com/pngs/863/117/png-transparent-travel-art-carolinas-aviation-museum-travel-tours-travel-agent-yellow-line-circle-logo.png"
-            class="h-8"
-            alt="GoTravel Logo"
-          />
+          <img src="https://w1.pngwing.com/pngs/863/117/png-transparent-travel-art-carolinas-aviation-museum-travel-tours-travel-agent-yellow-line-circle-logo.png" class="h-8" alt="GoTravel Logo" />
           <span
             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
             >Go Travel</span
@@ -88,9 +79,9 @@
             </li>
             <li>
               <a
-                href="/mybookings"
+                href="#"
                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-600 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >My Bookings</a
+                >Pricing</a
               >
             </li>
           </ul>
@@ -101,11 +92,7 @@
     <section class="dashboard p-8">
       <h1 class="text-3xl font-semibold mb-6">Welcome, <%= userName.name %></h1>
       <div class="profile flex items-center space-x-4">
-        <img
-          src="/assets/images/<%= user.img_url %>"
-          alt="Profile Picture"
-          class="w-24 h-24 rounded-full"
-        />
+        <img src="/assets/images/<%= user.img_url %>" alt="Profile Picture" class="w-24 h-24 rounded-full">
         <div class="profile-details">
           <h2 class="text-xl font-semibold mb-2">My Profile</h2>
           <p class="mb-2"><strong>Name:</strong> <%= userName.name %></p>
@@ -113,6 +100,7 @@
           <p class="mb-2"><strong>Email:</strong> <%= user.email %></p>
         </div>
       </div>
+
     </section>
   </body>
 </html>

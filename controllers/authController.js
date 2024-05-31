@@ -6,20 +6,14 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
 
-class AuthController 
-{
+class AuthController {
 
-    renderRegisterPage = (req, res) => 
-    {
+    renderRegisterPage = (req, res) => {
         const { crudToken } = req.cookies;
-        if (crudToken) 
-        {
+        if (crudToken) {
             return res.status(200).redirect('/dashboard');
-        } 
-        else 
-        {
-            return res.render('auth/register.ejs', 
-            {
+        } else {
+            return res.render('auth/register.ejs', {
                 title: 'Register',
                 error: ''
             });
@@ -140,8 +134,7 @@ class AuthController
 
             return res.status(200).redirect('/dashboard');
 
-        } 
-        catch (error) {
+        } catch (error) {
             return res.status(500).render('dashboard/error.ejs', {
                 status: 500,
                 title: 'Error',

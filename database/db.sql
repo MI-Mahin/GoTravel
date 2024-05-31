@@ -7,8 +7,19 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     img_url TEXT NOT NULL
 );
-ALTER TABLE tour_packages
-ADD COLUMN endDate DATE;
+
+CREATE TABLE taxis (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    number VARCHAR(20) NOT NULL,
+    pickup_location VARCHAR(100) NOT NULL,
+    dropoff_location VARCHAR(100) NOT NULL,
+    message TEXT
+);
+
+ALTER TABLE taxis
+ADD COLUMN user_id VARCHAR;
+
 
 
 CREATE TABLE tour_packages (
@@ -22,6 +33,9 @@ CREATE TABLE tour_packages (
     image_url TEXT,
     duration_days INTEGER
 );
+
+ALTER TABLE tour_packages
+ADD COLUMN endDate DATE;
 
 INSERT INTO pricing (package_id, price, currency)
 VALUES
@@ -40,6 +54,9 @@ CREATE TABLE pricing (
 
 INSERT INTO users (name, email, password, img_url)
 VALUES ('Jane Smith', 'jane@example.com', 'password456', 'https://example.com/jane.jpg');
+
+INSERT INTO users (name, email, password, img_url)
+VALUES ('Dipto', 'dipto1@gmail.com', '234567', 'c:\Users\Acer\OneDrive\Pictures\HD-wallpaper-2021-the-batman-batman.jpg');
 
 -- tour_packages table
 
@@ -193,7 +210,7 @@ VALUES ('Tokyo', '2027-05-20', 25, 'Tokyo Photography Tour', 'Capture stunning p
 
 
 INSERT INTO pricing (package_id, price, currency)
-VALUES (68, 249.99, 'USD');
+VALUES (2, 249.99, 'USD');
 
 INSERT INTO pricing (package_id, price, currency)
 VALUES (3, 149.99, 'USD');
@@ -297,11 +314,30 @@ VALUES (33, 349.99, 'USD');
     INNER JOIN pricing pr ON tp.package_id = pr.package_id
     WHERE tp.location ILIKE 'to%' AND tp.tour_date = DATE '2022-10-20' AND tp.max_capacity >= 1;
 
+    SELECT tp.package_id, tp.location, tp.tour_date, tp.endDate, tp.max_capacity, tp.package_name, tp.description, tp.image_url, tp.duration_days, pr.price, pr.currency
+FROM tour_packages tp
+INNER JOIN pricing pr ON tp.package_id = pr.package_id
+WHERE tp.location ILIKE 'to%' 
+AND tp.tour_date <= DATE '2024-05-19' 
+AND tp.endDate >= DATE '2024-05-20' 
+AND tp.max_capacity >= 1;
+
+SELECT tour_packages.package_id, tour_packages.location, tour_packages.tour_date, pricing.price, pricing.currency
+FROM tour_packages
+INNER JOIN pricing ON tour_packages.package_id = pricing.package_id
+WHERE tour_packages.location ILIKE 'Tokyo';
+
+
+
+
+
 --last insertions
- SELECT tp.package_id , tp.location, tp.tour_date, tp.endDate, tp.max_capacity, tp.package_name, tp.description
+ SELECT tp.package_id
   FROM tour_packages tp
 WHERE tp.location ILIKE 'to%' AND tp.tour_date = DATE '2024-05-19' AND tp.endDate = DATE '2024-05-20'
 and tp.max_capacity >= 1;
+
+
 
 
 INSERT INTO tour_packages (location, tour_date, endDate, max_capacity, package_name, description, image_url, duration_days)
@@ -315,42 +351,11 @@ VALUES
 ('Tokyo', '2024-05-19', '2024-05-24', 35, 'Tokyo Anime Adventure', 'Embark on an anime-themed adventure in Tokyo', 'https://placehold.co/600x400', 6),
 ('Tokyo', '2024-05-19', '2024-05-24', 40, 'Tokyo Historical Tour', 'Explore the rich history of Tokyo with knowledgeable guides', 'https://placehold.co/600x400', 7),
 ('Tokyo', '2024-05-19', '2024-05-24', 30, 'Tokyo Onsen Retreat', 'Relax and rejuvenate in traditional Japanese hot springs', 'https://placehold.co/600x400', 5),
-('Tokyo', '2024-05-19', '2024-05-20', 25, 'Tokyo Cycling Tour', 'Explore the city on two wheels with a guided cycling tour', 'https://placehold.co/600x400', 4),
-('Tokyo', '2024-05-19', '2024-05-20', 25, 'Tokyo Photography Tour', 'Capture stunning photos of Tokyo iconic landmarks', 'https://placehold.co/600x400', 4);
+('Tokyo', '2024-05-19', '2024-05-20', 25, 'Tokyo Cycling Tour', 'Explore the city on two wheels with a guided cycling tour', 'https://placehold.co/600x400', 4);
 
 
-INSERT INTO pricing (package_id, price, currency)
-VALUES (60, 149.99, 'USD');
-
-
-UPDATE tour_packages
-SET endDate = '2024-05-20'
-WHERE package_id = 60;
-
-
---users booking table 
-
-CREATE TABLE bookings (
-    booking_id SERIAL PRIMARY KEY,
-    user_mail VARCHAR(255) NOT NULL,
-    package_id INTEGER REFERENCES tour_packages(package_id) ON DELETE CASCADE,
-    numberOfPeople INTEGER NOT NULL,
-    booking_date DATE NOT NULL
-
-);
-
---text: "INSERT INTO taxis (name, number, pickup_location, dropoff_location, message) VALUES ($1, $2, $3, $4, $5)",
-
-CREATE TABLE taxis (
-    taxi_id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    number VARCHAR(255) NOT NULL,
-    pickup_location VARCHAR(255) NOT NULL,
-    dropoff_location VARCHAR(255) NOT NULL,
-    message TEXT
-);
-
-SELECT * from bookings b
-JOIN tour_packages tp 
-on b.package_id = tp.package_id
-WHERE  b.user_mail = $1 ; 
+INSERT INTO taxis (name, number, pickup_location, dropoff_location, message)
+VALUES 
+    ('John Smith', '1234567890', '123 Main Street, City A', '456 Park Avenue, City B', 'Need to reach airport by 3 PM'),
+    ('Alice Johnson', '0987654321', '789 Elm Street, City C', '321 Oak Street, City D', 'Going for a meeting at downtown'),
+    ('David Lee', '9876543210', '555 Pine Street, City E', '888 Maple Avenue, City F', 'Visiting friends in the suburbs');

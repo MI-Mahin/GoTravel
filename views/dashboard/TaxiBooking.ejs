@@ -454,55 +454,6 @@
       </div>
     </div>
 
-    <!-- <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('taxiForm');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Get form data
-        const name = document.getElementById('name').value;
-        const number = document.getElementById('number').value;
-        const pickupLocation = document.getElementById('pickupLocation').value;
-        const dropoffLocation = document.getElementById('dropoffLocation').value;
-        const message = document.getElementById('message').value;
-
-        // Create an object with form data
-        const formData = {
-            name: name,
-            number: number,
-            pickupLocation: pickupLocation,
-            dropoffLocation: dropoffLocation,
-            message: message
-        };
-
-        // Make a POST request to submit the form data
-        fetch('/orderTaxi', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-            alert('Order placed successfully');
-        })
-        .then(data => {
-            console.log(data);
-            alert('Order placed successfully');
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-    });
-});
-
-    </script> -->
   </body>
 </html>
