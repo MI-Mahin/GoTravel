@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link rel="stylesheet" href="/events.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="navbar-brand">
+          <h1>GoTravel</h1>
+        </div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/reservations">Reservations</a>
+          <a href="/contact">Contact us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-section">
+        <h2>
+          Find the <span class="highlight">special activity</span> for your next
+          stay today! Explore our activities
+        </h2>
+        <form id="search-form">
+          <input
+            type="text"
+            id="search-activities"
+            placeholder="Search activities"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="main-content">
+        <aside class="filter-section">
+          <h3>Filter Activities</h3>
+          <form id="filter-form">
+            <div class="filter-group">
+              <label for="start-date">Start Date</label>
+              <input type="date" id="start-date" name="start-date" />
+            </div>
+            <div class="filter-group">
+              <label for="end-date">End Date</label>
+              <input type="date" id="end-date" name="end-date" />
+            </div>
+          </form>
+        </aside>
+
+        <section class="results-section">
+          <div class="events-container">
+            <!-- Event packages will be displayed here -->
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchForm = document.querySelector("#search-form");
+        const filterForm = document.querySelector("#filter-form");
+
+        searchForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const query = document.querySelector("#search-activities").value;
+          await searchEvents(query);
+        });
+
+        filterForm.addEventListener("change", async (e) => {
+          e.preventDefault();
+          const query = document.querySelector("#search-activities").value;
+          const startDate = document.querySelector("#start-date").value;
+          const endDate = document.querySelector("#end-date").value;
+          await filterEvents({ query, startDate, endDate });
+        });
+
+        async function searchEvents(query) {
+          try {
+            const response = await fetch(
+              `/dashboard/eventSearch?query=${query}`
+            );
+            if (!response.ok) throw new Error("Failed to fetch search results");
+            const events = await response.json();
+            displayEvents(events);
+          } catch (error) {
+            console.error("Error fetching search results:", error);
+          }
+        }
+
+        async function filterEvents(filters) {
+          try {
+            const params = new URLSearchParams(filters).toString();
+            const response = await fetch(`/dashboard/filter?${params}`);
+
+            if (!response.ok)
+              throw new Error("Failed to fetch filtered results");
+            const events = await response.json();
+            console.log(events);
+
+            displayEvents(events);
+          } catch (error) {
+            console.error("Error fetching filtered results:", error);
+          }
+        }
+
+        function displayEvents(events) {
+          const container = document.querySelector(".events-container");
+          container.innerHTML = "";
+
+          if (events.length === 0) {
+            container.innerHTML = "<p>No events found</p>";
+            return;
+          }
+          events.forEach((event) => {
+            const card = document.createElement("div");
+            card.className = "event-card";
+            card.innerHTML = `<img src="${event.image}" alt="${event.event_name}" />
+                <div>
+                    <h3>${event.event_name}</h3>
+                    <p class="price">Price: $${event.price}</p>
+                    <div class="details">
+                        <span>Date: ${event.start_date} - ${event.end_date}</span>
+                        <span>Location: ${event.place}</span>
+                        <span>Time: ${event.start_time}</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

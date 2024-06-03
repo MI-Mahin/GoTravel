@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tours & Attractions | GoTravel</title>
+    <style>
+      /* Reset default margin and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Navigation styles */
+      nav {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav__logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ff6347;
+      }
+
+      .nav__links {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav__links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav__links a:hover {
+        color: #ff6347;
+      }
+
+      /* Section styles */
+      .section__container {
+        max-width: 2000px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .section__header {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: #007bff;
+      }
+
+      .highlight {
+        color: #ff6347;
+      }
+
+      /* Search container styles */
+      .search__container {
+        text-align: center;
+      }
+
+      /* Form styles */
+      .search__form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .form__group {
+        margin-right: 10px;
+      }
+
+      .form__group input[type="text"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      /* Results container styles */
+      .results__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+      }
+
+      .result__item {
+        width: 90%;
+        margin: 10px 0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .result__item img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+
+      .result__item h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        color: #007bff;
+      }
+
+      .result__item p {
+        margin: 10px 0;
+        color: #666;
+      }
+
+      .result__item a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #fff;
+        background-color: #007bff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .result__item a:hover {
+        background-color: #0056b3;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin-top: auto;
+      }
+
+      .footer__container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer__col {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer__col h4 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        color: #ff6347;
+      }
+
+      .footer__col p {
+        margin-bottom: 10px;
+        color: #ff6347;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .footer__bar {
+        background-color: #444;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .socials span {
+        font-size: 1.5rem;
+        color: #007bff;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .socials span:hover {
+        color: #ff6347;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo">GoTravel</div>
+      <ul class="nav__links">
+        <li class="link"><a href="/">Home</a></li>
+        <li class="link"><a href="/about">About Us</a></li>
+        <li class="link"><a href="/finddestination">Reservations</a></li>
+      </ul>
+    </nav>
+
+    <section class="section__container search__container">
+      <h2 class="section__header">
+        Find <span class="highlight">Tours & Attractions</span>
+      </h2>
+      <form id="countryForm" action="/attractions" method="post">
+        <input
+          type="text"
+          id="countryInput"
+          name="country"
+          placeholder="Enter a location "
+          required
+        />
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <div id="attractions-container"></div>
+    </section>
+
+    <section class="section__container results__container">
+      <% if (attractions.length > 0) { %> <% attractions.forEach(attraction => {
+      %>
+      <div class="result__item">
+        <img src="<%= attraction.image_url %>" alt="Attraction Image" />
+        <h3><%= attraction.name %></h3>
+        <p><%= attraction.description %></p>
+        <a href="/blog/<%= attraction.attraction_id %>">Learn More</a>
+      </div>
+      <% }) %> <% } else { %>
+      <p>No attractions found for the specified location.</p>
+      <% } %>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>About GoTravel</h3>
+          <p>
+            Where Excellence Takes Flight. With a strong commitment to customer
+            satisfaction and a passion for air travel, we offer exceptional
+            service and seamless journeys.
+          </p>
+          <p>
+            From friendly smiles to state-of-the-art aircraft, we connect the
+            world, ensuring safe, comfortable, and unforgettable experiences.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>INFORMATION</h4>
+          <p>Home</p>
+          <p>About</p>
+          <p>Offers</p>
+          <p>Seats</p>
+          <p>Destinations</p>
+        </div>
+        <div class="footer__col">
+          <h4>CONTACT</h4>
+          <p>Support</p>
+          <p>Media</p>
+          <p>Socials</p>
+        </div>
+      </div>
+      <div class="section__container footer__bar">
+        <div class="socials">
+          <span><i class="ri-facebook-fill"></i></span>
+          <span><i class="ri-twitter-fill"></i></span>
+          <span><i class="ri-instagram-line"></i></span>
+          <span><i class="ri-youtube-fill"></i></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

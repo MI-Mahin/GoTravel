@@ -16,8 +16,15 @@ const dashboardRouter = require('./routes/dashboardRoute');
 
 // Middleware
 app.use(cors());
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(bodyParser.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+
 app.use(cookieParser());
 // Session
 app.use(session({
@@ -38,12 +45,12 @@ app.use(express.static(path.join(__dirname, 'views')));
 // Use Routes
 app.use('/auth', authRouter)
 app.use('/', dashboardRouter)
-
-app.get('/', (req, res) => {
-    return res.render('root.ejs', {
-        title: 'Go Travel'
-    });
+app.get("/", (req, res) => {
+  return res.render("root.ejs", {
+    title: "Go Travel",
+  });
 });
+
 
 
 

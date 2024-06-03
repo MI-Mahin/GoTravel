@@ -230,7 +230,7 @@
                 <i class="fas fa-comment"></i>💬 <b>15600</b>
               </div>
               <div class="info_price">
-                <a href="">More Info</a><br />
+                <a href="details/:package_id">More Info</a><br />
                 <h4>$9670</h4>
               </div>
             </div>
@@ -286,7 +286,7 @@
                 <i class="fas fa-comment"></i>💬 <b>8456</b>
               </div>
               <div class="info_price">
-                <a href="">More Info</a><br />
+                <a href="details/:package_id">More Info</a><br />
                 <h4>$8670</h4>
               </div>
             </div>
@@ -298,6 +298,124 @@
         </div>
       </div>
     </div>
+
+    <!-- Recommendations -->
+    <!-- Recommendations -->
+    <!-- Recommendations -->
+    <!-- Recommendations -->
+
+    <div class="offers">
+      <h1>Recommended Packages</h1>
+      <p>Choose your next destination</p>
+      <div class="cards">
+        <div class="card">
+          <h3><%= p1.package_name %></h3>
+          <div class="img_text">
+            <img src="<%= p1.image_url %>" alt="" />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>26415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>1000</b>
+              </div>
+              <div class="info_price">
+                <a href="details/<%= p1.package_id %>">More Info</a><br />
+                <h4>$100</h4>
+              </div>
+            </div>
+            <div class="days">
+              <br />
+              2 days
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW CARD -->
+
+        <div class="card">
+          <h3><%= p2.package_name %></h3>
+          <div class="img_text">
+            <img src="<%= p2.image_url %>" alt="" />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>26415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>1000</b>
+              </div>
+              <div class="info_price">
+                <a href="details/<%= p2.package_id %>">More Info</a><br />
+
+                <h4>$200</h4>
+              </div>
+            </div>
+            <div class="days">
+              <br />
+              3 days
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW CARD -->
+
+        <div class="card">
+          <h3><%= p3.package_name %></h3>
+          <div class="img_text">
+            <img src="<%= p3.image_url %>" alt="" />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>86415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>12456</b>
+              </div>
+              <div class="info_price">
+                <a href="details/<%= p3.package_id %>">More Info</a><br />
+                <h4>$250</h4>
+              </div>
+            </div>
+            <div class="days">2 days</div>
+          </div>
+        </div>
+        <!--New card-->
+        <div class="card">
+          <h3>Mount Fuji-Japan</h3>
+          <div class="img_text">
+            <img
+              src="https://media.cnn.com/api/v1/images/stellar/prod/230908155626-05-mount-fuji-overtourism.jpg?c=original"
+              alt=""
+            />
+            <h4>
+              Included: Air Ticket, Hotel, Breakfast, Tours, Airport Transfer
+            </h4>
+          </div>
+          <div class="info-box">
+            <div class="price">
+              <div class="likes">
+                <i class="fas fa-heart"></i>❤️ <b>77415</b> <br />
+                <i class="fas fa-comment"></i>💬 <b>8456</b>
+              </div>
+              <div class="info_price">
+                More Info <br />
+                <h4>$867</h4>
+              </div>
+            </div>
+            <div class="days">7 days <br /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="destination">
       <div class="des_bx">
         <h4>Our destination</h4>
@@ -385,7 +503,10 @@
         <header>
           <h1>Travely</h1>
           <p>
-            Our commitment to transparency and integrity drives every aspect of our business.<br> We believe that honesty and trustworthiness are the cornerstones of a successful company
+            Our commitment to transparency and integrity drives every aspect of
+            our business.<br />
+            We believe that honesty and trustworthiness are the cornerstones of
+            a successful company
           </p>
           <div class="social-icons">
             <div>

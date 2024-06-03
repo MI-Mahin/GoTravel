@@ -67,10 +67,35 @@
 
       .booking-card img {
         transition: transform 0.5s ease;
+        padding: 10px;
       }
 
       .package-link:hover .booking-card img {
         transform: scale(1.1); /* Adjust scale for hover effect */
+      }
+
+      .booking-card {
+        max-height: 250px; /* Limit card height */
+      }
+
+      .booking-card div,
+      .booking-card iframe {
+        flex: 1;
+      }
+
+      .booking-card img,
+      .booking-card iframe {
+        height: 100%; /* Ensure images and iframes fill the height */
+      }
+
+      .booking-card div {
+        overflow: hidden;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .booking-card p {
+        margin-bottom: 0.5rem; /* Reduce bottom margin for paragraphs */
       }
     </style>
   </head>
@@ -78,15 +103,26 @@
     class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
   >
     <div class="container">
-      <!-- filtering options -->
       <div class="filter-box">
         <h2 class="text-lg font-semibold mb-4 text-center">Filter Options</h2>
-        <button class="filter-button" data-filter="low_to_high">
-          Price Low to High
-        </button>
-        <button class="filter-button" data-filter="high_to_low">
-          Price High to Low
-        </button>
+
+        <a
+          href="destination/person?id=low&location=<%= location %>&date=<%= date %>&number=<%= number %>"
+          style="display: block; width: 100%"
+        >
+          <button class="filter-button" data-filter="popular">
+            Price Low to High
+          </button>
+        </a>
+
+        <a
+          href="destination/person?id=high&location=<%= location %>&date=<%= date %>&number=<%= number %>"
+          style="display: block; width: 100%"
+        >
+          <button class="filter-button" data-filter="popular">
+            Price High to Low
+          </button>
+        </a>
       </div>
 
       <!-- Search results content here: -->
@@ -94,7 +130,6 @@
         <h1 class="text-3xl font-bold mb-6">Destination Search Results</h1>
 
         <% if (tourPackages.length > 0) { %>
-
         <div class="grid grid-cols-1 gap-6">
           <% tourPackages.forEach(package => { %>
           <a href="/details/<%= package.package_id %>" class="package-link">
@@ -115,13 +150,55 @@
                 <p class="text-gray-600">
                   Max Capacity: <%= package.max_capacity %>
                 </p>
-                <p class="text-gray-600">
+                <!-- <p class="text-gray-600">
                   Description: <%= package.description %>
-                </p>
+                </p> -->
                 <p class="text-gray-600">
-                  Price: <%= package.price %> <%= package.currency %>
+                  <strong> Price:</strong> <%= package.price %> <%=
+                  package.currency %>
                 </p>
               </div>
+              <% if (package.package_id == 75) { %>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326937.7401162046!2d137.12935345851028!3d35.48046824965551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x605d1b87f02e57e7%3A0x2e01618b22571b89!2sTokyo%2C%20Japan!5e0!3m2!1sen!2sbd!4v1717357743947!5m2!1sen!2sbd"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <% } %> <% if (package.package_id == 73) { %>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31458076.746106282!2d98.88670055234604!3d15.74599333435405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec0ec6cb7a3%3A0xee8647a176257a17!2sTokyo%20Culture%20Cycling%20Tour!5e0!3m2!1sen!2sbd!4v1717291517702!5m2!1sen!2sbd"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <% } %> <% if (package.package_id == 74) { %>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326937.7401162046!2d137.12935345851028!3d35.48046824965551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x605d1b87f02e57e7%3A0x2e01618b22571b89!2sTokyo%2C%20Japan!5e0!3m2!1sen!2sbd!4v1717357743947!5m2!1sen!2sbd"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <% } %> <% if (package.package_id == 26 ) { %>
+              <iframe
+                src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31065980.60377383!2d98.92658012474156!3d18.10698393934153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037158e41ea381%3A0xf9bae0a7f9f9741!2sTokyo%20Bliss!5e0!3m2!1sen!2sbd!4v1717290742289!5m2!1sen!2sbd"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <% } %>
             </div>
           </a>
           <% }); %>
@@ -133,89 +210,5 @@
         <% } %>
       </div>
     </div>
-
-    <script type="module">
-      import { finddestination } from "../../controllers/dashboardController.js";
-
-      let tourPackages = [];
-
-      // Function to render tour packages
-      function renderPage(filteredPackages = []) {
-        const resultsContainer = document.querySelector(
-          ".search-results .grid"
-        );
-        if (!resultsContainer) return;
-
-        resultsContainer.innerHTML = "";
-
-        const packagesToRender = filteredPackages.length
-          ? filteredPackages
-          : tourPackages;
-
-        packagesToRender.forEach((tourPackage) => {
-          const packageElement = document.createElement("div");
-          packageElement.classList.add(
-            "bg-white",
-            "rounded-lg",
-            "shadow-lg",
-            "overflow-hidden",
-            "flex",
-            "items-center"
-          );
-
-          packageElement.innerHTML = `
-        <img class="w-1/3 h-auto object-cover" src="${tourPackage.image_url}" alt="Package Image" />
-        <div class="p-6 w-2/3">
-          <h2 class="text-xl font-semibold mb-2">${tourPackage.package_name}</h2>
-          <p class="text-gray-600">Location: ${tourPackage.location}</p>
-          <p class="text-gray-600">Tour Date: ${tourPackage.tour_date}</p>
-          <p class="text-gray-600">Max Capacity: ${tourPackage.max_capacity}</p>
-          <p class="text-gray-600">Description: ${tourPackage.description}</p>
-          <p class="text-gray-600">Price: ${tourPackage.price} ${tourPackage.currency}</p>
-        </div>
-      `;
-
-          resultsContainer.appendChild(packageElement);
-        });
-      }
-
-      // Event listener for filter buttons
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM loaded");
-        document.querySelectorAll(".filter-button").forEach((button) => {
-          button.addEventListener("click", () => {
-            button.classList.toggle("active");
-            const filter = button.dataset.filter;
-
-            let filteredPackages = [];
-
-            if (filter === "low_to_high") {
-              filteredPackages = tourPackages
-                .slice()
-                .sort((a, b) => a.price - b.price);
-            } else if (filter === "high_to_low") {
-              filteredPackages = tourPackages
-                .slice()
-                .sort((a, b) => b.price - a.price);
-            }
-
-            renderPage(filteredPackages);
-          });
-        });
-      });
-
-      // Call renderPage function after page loads
-      window.onload = () => {
-        console.log("Page loaded");
-        finddestination()
-          .then((response) => {
-            tourPackages = response.data.tourPackages;
-            renderPage(); // Call renderPage function after promise resolves
-          })
-          .catch((error) => {
-            console.error("Error fetching tour packages:", error);
-          });
-      };
-    </script>
   </body>
 </html>

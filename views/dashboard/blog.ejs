@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= attraction.name %> | GoTravel</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f8ff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .section__container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .section__header {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #007bff;
+      }
+      .highlight {
+        color: #ff6347;
+      }
+      .attraction__image {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .attraction__description {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #666;
+      }
+      .attraction__details {
+        margin-top: 20px;
+      }
+      .btn-back {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      .btn-back:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section__container">
+      <h2 class="section__header"><%= attraction.name %></h2>
+      <img
+        class="attraction__image"
+        src="<%= attraction.image_url %>"
+        alt="<%= attraction.name %>"
+      />
+      <div class="attraction__description"><%= attraction.description %></div>
+      <div class="attraction__details"><%= attraction.blog_content %></div>
+      <a class="btn-back" href="javascript:history.back()">Back</a>
+    </section>
+  </body>
+</html>
